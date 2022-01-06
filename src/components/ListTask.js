@@ -5,10 +5,17 @@ import { useSelector } from 'react-redux'
 
 const ListTask = () => {
     const tasks = useSelector(state => state)
+
+
+
+    
+    
+
     return (
         <>
-            <div>Liste</div>
+            <div>liste</div>
             <AddTask/>
+            
             {
                 tasks.map((task,index )=> {
                     return <Task key={index} task = {task} />

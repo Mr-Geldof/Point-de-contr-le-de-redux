@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteTask, updateTask, doneTask } from '../redux/Action'
+import { deleteTask, updateTask, doneTask } from '../redux/actions'
 import { useState } from 'react'
-
+import { motion } from 'framer-motion'
 const Task = ({ task }) => {
   const dispatch = useDispatch()
   const [edit, setEdit] = useState(false)
@@ -30,7 +30,7 @@ const Task = ({ task }) => {
 
   return (
     <>
-      <div animate={{ x: 20}}
+      <motion.div animate={{ x: 20}}
   transition={{ ease: "easeOut", duration: 2 }} >
         {edit ? <input value={input} onChange={(e) => setInput(e.target.value)} /> : <div>{task.text} </div>}
         <button className='btn btn-danger'
@@ -46,7 +46,11 @@ const Task = ({ task }) => {
         <input type="checkbox" name="box" checked={done} onChange={() => doneHandler()} />
         <label htmlFor="box">done</label>
 
-      </div >
+      </motion.div >
+
+
+
+
     </>
   )
 }
